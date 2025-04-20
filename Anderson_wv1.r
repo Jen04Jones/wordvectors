@@ -1,5 +1,5 @@
 
-
+#Used Code from Slack 4-19-2025
 # Install wordVectors from GitHub
 install.packages(c("tidyverse", "ggplot2", "Rcpp")) 
 devtools::install_github("bmschmidt/wordVectors") 
@@ -10,7 +10,7 @@ library(tidyverse)
 library(ggplot2)
 library(Rcpp)  
 
-#Variables
+#Variables 
 if (!file.exists("art.txt")) prep_word2vec(origin = "wvtxt", destination = "art.txt", lowercase = TRUE, bundle_ngrams = 1)
 
 if (!file.exists("art.bin")) {
@@ -43,14 +43,14 @@ if (nrow(word_similarities_df) > 0) {
             TRUE ~ "Neutral"
         ))
 
-    # Dor Chart Chart
+    # Dot Chart Needed help debugging AI Apirl 19, 2025 Copilot
     dot_chart_plot <- ggplot(word_similarities_df, aes(x = similarity, y = reorder(word, similarity), color = category)) +
         geom_point(size = 3) +
           geom_text(aes(label = word), hjust = 0, color = "black", size = 3, check_overlap = TRUE) +
             scale_color_manual(values = c("Closest" = "blue", "Farthest" = "red", "Neutral" = "gray")) +
              theme_minimal() +
              theme(
-    #Had to change colors so could be read
+    #Had to change colors so could be read AI April 19, 2025 Copilot
             panel.background = element_rect(fill = "white"),  
             plot.background = element_rect(fill = "white"),  
             panel.grid.major = element_line(color = "black"),  
@@ -97,7 +97,7 @@ if (length(term_set) > 0) {
     print("Error: No valid words found for dendrogram!")
 }
 
-#Gender words comparison chart
+#Gender words comparison chart Used code from SLack 
 gender_words_female <- c("feminine", "femininity", "woman", "women")
 gender_words_male <- c("masculine", "masculinity", "men", "man")
 
